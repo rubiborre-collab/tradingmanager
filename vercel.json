@@ -1,0 +1,17 @@
+{
+  "functions": {
+    "app/api/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "DATABASE_URL": "@database_url",
+    "TRADES_API_KEY": "@trades_api_key"
+  },
+  "build": {
+    "env": {
+      "DATABASE_URL": "@database_url",
+      "TRADES_API_KEY": "@trades_api_key"
+    }
+  }
+}
