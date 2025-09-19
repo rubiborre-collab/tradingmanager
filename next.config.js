@@ -9,7 +9,6 @@ const nextConfig = {
   images: { 
     unoptimized: true 
   },
-  optimizeFonts: false,
   output: 'export',
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
@@ -17,6 +16,9 @@ const nextConfig = {
   basePath: '',
   assetPrefix: '',
   // Disable server-side features for static export
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  }
 };
 
 module.exports = nextConfig;
