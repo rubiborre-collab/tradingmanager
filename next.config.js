@@ -16,9 +16,6 @@ const nextConfig = {
   basePath: '',
   assetPrefix: '',
   // Disable server-side features for static export
-  experimental: {
-    missingSuspenseWithCSRBailout: false,
-  }
 };
 
 module.exports = nextConfig;
