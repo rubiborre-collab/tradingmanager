@@ -15,7 +15,10 @@ const nextConfig = {
   distDir: 'out',
   basePath: '',
   assetPrefix: '',
-  optimizeFonts: false,
+  // Disable server-side features for static export
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  }
 };
 
 module.exports = nextConfig;

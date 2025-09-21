@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { Sidebar } from '@/components/layout/sidebar';
 
 export default function DashboardLayout({
@@ -7,6 +8,13 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
+
+  useEffect(() => {
+    const password = sessionStorage.getItem('app_password');
+    if (!password) {
+      window.location.href = '/';
+    }
+  }, []);
 
   return (
     <div className="flex h-screen bg-gray-50">
