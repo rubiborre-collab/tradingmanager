@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,14 +11,6 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    // Check if already logged in
-    const storedPassword = sessionStorage.getItem('app_password');
-    if (storedPassword) {
-      window.location.href = '/dashboard/';
-    }
-  }, []);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -28,9 +20,13 @@ export default function LoginPage() {
       const validPassword = 'trading123'; // Fixed password for static site
       
       if (password === validPassword) {
-        sessionStorage.setItem('app_password', password);
+        if (typeof window !== 'undefined') {
+          sessionStorage.setItem('app_password', password);
+        }
         toast.success('Acceso autorizado');
-        window.location.href = '/dashboard/';
+        if (typeof window !== 'undefined') {
+          window.location.href = '/dashboard/';
+        }
       } else {
         toast.error('Contraseña incorrecta');
       }

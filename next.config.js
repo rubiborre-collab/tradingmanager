@@ -16,7 +16,6 @@ const nextConfig = {
   basePath: '',
   assetPrefix: '',
   optimizeFonts: false,
-  // Remove experimental section completely as it's not needed for static export
 };
 
 module.exports = nextConfig;
